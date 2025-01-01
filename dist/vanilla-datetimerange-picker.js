@@ -418,6 +418,9 @@ var DateRangePicker;
         --------------------------------------------------------------------------------------
         */
 
+        this.clickNoneProxy = function (e) { e.stopPropagation(e); }.bind(this);
+        jq.on(this.container, 'click', this.clickNoneProxy);
+
         this.clickRangeProxy = function (e) { this.clickRange(e); }.bind(this);
         jq.on(this.container.querySelector('.ranges'), 'click', 'li', this.clickRangeProxy);
 
